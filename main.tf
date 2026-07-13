@@ -2,14 +2,14 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "~> 3.0"
+      version = "~> 4.0"
     }
   }
 }
 
 provider "azurerm" {
   features {}
-  skip_provider_registration = true
+  resource_provider_registrations = "none"
 }
 
 variable "node_count" {
@@ -27,7 +27,7 @@ variable "ssh_public_key" {
 }
 
 resource "azurerm_resource_group" "testnet" {
-  name     = "quanta-flood-testnet-rg"
+  name     = "quanta-flood-v2-rg"
   location = var.location
 }
 
