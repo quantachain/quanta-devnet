@@ -18,7 +18,7 @@ variable "node_count" {
 }
 
 variable "location" {
-  default = "East US"
+  default = "Australia Central"
 }
 
 variable "ssh_public_key" {
@@ -27,7 +27,7 @@ variable "ssh_public_key" {
 }
 
 resource "azurerm_resource_group" "testnet" {
-  name     = "quanta-flood-v5-rg"
+  name     = "quanta-flood-v6-rg"
   location = var.location
 }
 
@@ -121,7 +121,7 @@ resource "azurerm_linux_virtual_machine" "node_vm" {
   name                = "quanta-node-${count.index}"
   resource_group_name = azurerm_resource_group.testnet.name
   location            = azurerm_resource_group.testnet.location
-  size                = "Standard_D2s_v3"
+  size                = "Standard_A2"
   admin_username      = "quantaadmin"
 
   network_interface_ids = [
