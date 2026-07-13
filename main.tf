@@ -121,7 +121,7 @@ resource "azurerm_linux_virtual_machine" "node_vm" {
   name                = "quanta-node-${count.index}"
   resource_group_name = azurerm_resource_group.testnet.name
   location            = azurerm_resource_group.testnet.location
-  size                = "Standard_A2"
+  size                = "Standard_B2s"
   admin_username      = "quantaadmin"
 
   network_interface_ids = [
