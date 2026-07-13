@@ -50,7 +50,8 @@ resource "azurerm_public_ip" "node_ip" {
   name                = "quanta-node-ip-${count.index}"
   location            = azurerm_resource_group.testnet.location
   resource_group_name = azurerm_resource_group.testnet.name
-  allocation_method   = "Dynamic"
+  allocation_method   = "Static"
+  sku                 = "Standard"
 }
 
 resource "azurerm_network_security_group" "testnet_nsg" {
