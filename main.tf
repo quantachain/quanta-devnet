@@ -14,11 +14,11 @@ provider "azurerm" {
 
 variable "node_count" {
   description = "Number of validator nodes to spawn for the Flood Testnet"
-  default     = 20
+  default     = 5
 }
 
 variable "location" {
-  default = "Australia Central"
+  default = "East US 2"
 }
 
 variable "ssh_public_key" {
@@ -27,7 +27,7 @@ variable "ssh_public_key" {
 }
 
 resource "azurerm_resource_group" "testnet" {
-  name     = "quanta-flood-v9-rg"
+  name     = "quanta-flood-v10-rg"
   location = var.location
 }
 
@@ -121,7 +121,7 @@ resource "azurerm_linux_virtual_machine" "node_vm" {
   name                = "quanta-node-${count.index}"
   resource_group_name = azurerm_resource_group.testnet.name
   location            = azurerm_resource_group.testnet.location
-  size                = "Standard_A2_v2"
+  size                = "Standard_B2s"
   admin_username      = "quantaadmin"
 
   network_interface_ids = [
