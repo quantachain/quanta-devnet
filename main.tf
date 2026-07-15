@@ -9,7 +9,6 @@ terraform {
 
 provider "azurerm" {
   features {}
-  resource_provider_registrations = "none"
 }
 
 variable "node_count" {
@@ -18,7 +17,7 @@ variable "node_count" {
 }
 
 variable "location" {
-  default = "East US 2"
+  default = "Sweden Central"
 }
 
 variable "ssh_public_key" {
@@ -27,7 +26,7 @@ variable "ssh_public_key" {
 }
 
 resource "azurerm_resource_group" "testnet" {
-  name     = "quanta-flood-v10-rg"
+  name     = "quanta-flood-v12-rg"
   location = var.location
 }
 
